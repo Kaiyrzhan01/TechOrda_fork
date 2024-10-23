@@ -1,0 +1,39 @@
+[root@localhost nginx-locations]# sudo dnf install ufw
+[root@localhost nginx-locations]# 
+[root@localhost nginx-locations]# systemctl start ufw
+[root@localhost nginx-locations]# systemctl status ufw
+[root@localhost nginx-locations]# 
+[root@localhost nginx-locations]# sudo ufw enable
+[root@localhost nginx-locations]# 
+[root@localhost nginx-locations]# sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+
+Rule added
+Rule added (v6)
+Rule added
+Rule added (v6)
+[root@localhost nginx-locations]# 
+[root@localhost nginx-locations]# sudo ufw deny from any to any
+Rule added
+Rule added (v6)
+[root@localhost nginx-locations]# sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp (SSH)               ALLOW IN    Anywhere                  
+224.0.0.251 5353/udp (mDNS) ALLOW IN    Anywhere                  
+80/tcp                     ALLOW IN    Anywhere                  
+443/tcp                    ALLOW IN    Anywhere                  
+Anywhere                   DENY IN     Anywhere                  
+22/tcp (SSH (v6))          ALLOW IN    Anywhere (v6)             
+ff02::fb 5353/udp (mDNS)   ALLOW IN    Anywhere (v6)             
+80/tcp (v6)                ALLOW IN    Anywhere (v6)             
+443/tcp (v6)               ALLOW IN    Anywhere (v6)             
+Anywhere (v6)              DENY IN     Anywhere (v6)             
+
+[root@localhost nginx-locations]# sudo systemctl restart nginx
+

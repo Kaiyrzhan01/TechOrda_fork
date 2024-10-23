@@ -1,0 +1,3 @@
+[root@localhost nginx-locations]# curl -H "Host: jusan.kz" -k https://localhost/secret_word
+jusan-nginx-cert[root@localhost nginx-locations]# 
+
