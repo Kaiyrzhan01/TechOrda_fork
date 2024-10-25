@@ -1,0 +1,29 @@
+[root@localhost docker-monitoring-ansible]# docker run -d --name jsn-dkr-run -p 8888:80 nginx:mainline
+Unable to find image 'nginx:mainline' locally
+mainline: Pulling from library/nginx
+a480a496ba95: Pull complete 
+f3ace1b8ce45: Pull complete 
+11d6fdd0e8a7: Pull complete 
+f1091da6fd5c: Pull complete 
+40eea07b53d8: Pull complete 
+6476794e50f4: Pull complete 
+70850b3ec6b2: Pull complete 
+Digest: sha256:5026c85d87419b6c3622622570ea5c25ab9f9bb48961554658272bbc18e518b1
+Status: Downloaded newer image for nginx:mainline
+d2640bb1dac339a10fc82c20cc40115c771ce9a274644d4149d679f2cc48b377
+[root@localhost docker-monitoring-ansible]# 
+[root@localhost docker-monitoring-ansible]# docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+d2640bb1dac3   nginx:mainline   "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:8888->80/tcp, [::]:8888->80/tcp   jsn-dkr-run
+[root@localhost docker-monitoring-ansible]# 
+[root@localhost docker-monitoring-ansible]# docker stop jsn-dkr-run
+jsn-dkr-run
+[root@localhost docker-monitoring-ansible]# 
+[root@localhost docker-monitoring-ansible]# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[root@localhost docker-monitoring-ansible]# 
+[root@localhost docker-monitoring-ansible]# docker ps -a
+CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS                      PORTS     NAMES
+d2640bb1dac3   nginx:mainline   "/docker-entrypoint.…"   2 minutes ago   Exited (0) 11 seconds ago             jsn-dkr-run
+[root@localhost docker-monitoring-ansible]# 
+
